@@ -1,3 +1,5 @@
+# Github Pages
+https://jellybeans511.github.io/ThetaQuest/
 # ThetaQuest
 This page is for capturing theta z video and displaying it in Quest2.
 I only have the theta z and quest2, so I have not tested it for other theta series or VRHMD.
