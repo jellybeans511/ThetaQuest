@@ -57,8 +57,6 @@ function init() {
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0x101010);
 
-
-
   texture.minFilter = THREE.LinearFilter;
   texture.magFilter = THREE.LinearFilter;
   texture.format = THREE.RGBAFormat;
