@@ -4,12 +4,10 @@ import { VRButton } from 'three/addons/webxr/VRButton.js';
 
 var vrButton = VRButton;
 
-// グローバル変数
 var camera, scene, renderer, clock, sphere;
 var video, texture;
 let localVideo = document.getElementById("js-local-video");
 
-// 初期化関数
 function init() {
 
   clock = new THREE.Clock();
@@ -34,14 +32,12 @@ function init() {
   const manager = new THREE.LoadingManager();
   const loader = new THREE.TextureLoader(manager);
 
-  // Webカメラから映像を取得するためのvideo要素を作成
   video = document.createElement('video');
   video.width = window.innerWidth;
   video.height = window.innerHeight;
   video.autoplay = true;
   video.playsInline = true;
 
-  // getUserMediaを使って、Webカメラから映像を取得する
   navigator.mediaDevices.getUserMedia({
     video: {
       width: 3840,
@@ -57,7 +53,6 @@ function init() {
     console.log("An error occurred: " + err);
   });
 
-  // video要素をテクスチャとして読み込む
   texture = new THREE.VideoTexture(video);
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0x101010);
@@ -120,19 +115,14 @@ function init() {
    //mesh.rotation.y = - Math.PI / 2;
    scene.add(mesh);
    
-
-  ///////////////
-  // レンダラーを作成
   renderer = new THREE.WebGLRenderer();
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.xr.enabled = true;
   renderer.xr.setReferenceSpaceType('local');
   container.appendChild(renderer.domElement);
-
-  // ドキュメントにレンダラーを追加
+  
   //document.body.appendChild(renderer.domElement);
-
   document.body.appendChild(VRButton.createButton(renderer));
 }
 
@@ -145,12 +135,10 @@ function onWindowResize() {
 
 }
 
-// アニメーション関数
 function animate() {
   renderer.setAnimationLoop(render);
 }
 
-// レンダリング関数
 function render() {
   /*if (video.readyState === video.HAVE_ENOUGH_DATA) {
     texture.needsUpdate = true;
@@ -158,6 +146,5 @@ function render() {
   renderer.render(scene, camera);
 }
 
-// 初期化とアニメーションの開始
 init();
 animate();
