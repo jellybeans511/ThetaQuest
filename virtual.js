@@ -19,7 +19,7 @@ function init() {
   const light = new THREE.AmbientLight(0xffff00, 1);
   scene.add(light);
 
-  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 2000);
+  camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 2000);
   camera.layers.enable(1); // render left view when no stereo available
   //camera.position.set(0, 1.6, 0);
   //scene.add(camera);
@@ -112,12 +112,13 @@ function init() {
 */
   //Single Display Mode 
   
-   const geometry = new THREE.SphereGeometry(500, 60, 40);
+   const geometry = new THREE.SphereGeometry(3, 3840, 1920);//Input wide resolution, height resolution as second, third augument. 
    geometry.scale(- 1, 1, 1);
    const material = new THREE.MeshBasicMaterial({ map: texture });
 
    const mesh = new THREE.Mesh(geometry, material);
    //mesh.rotation.y = - Math.PI / 2;
+  
    scene.add(mesh);
    
 
